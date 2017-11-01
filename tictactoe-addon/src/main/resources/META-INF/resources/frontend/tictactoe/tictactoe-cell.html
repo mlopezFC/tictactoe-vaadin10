@@ -1,0 +1,28 @@
+<!-- Dependency resources -->
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<!-- Defines the example-template element -->
+<dom-module id="tictactoe-cell">
+    <template>
+        <span>{{cellValue}}</span>
+    </template>
+
+    <!-- Polymer boilerplate to register the example-template element -->
+    <script>
+        class TicTacToeCellTemplate extends Polymer.Element {
+            static get is() {
+                return 'tictactoe-cell'
+            }
+            
+            static get properties() {
+                return {
+                  cellValue: {
+                    type: String,
+                    value: '-'
+                  }
+                }
+              }
+        }
+        customElements.define(TicTacToeCellTemplate.is, TicTacToeCellTemplate);
+    </script>
+</dom-module>
