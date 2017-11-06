@@ -15,16 +15,14 @@
  */
 package org.vaadin.test.tictactoe.demo;
 
-import org.vaadin.test.tictactoe.TicTacToeCell;
-import org.vaadin.test.tictactoe.TicTacToeCell.TicTacToeEnum;
+import org.vaadin.test.tictactoe.TicTacToeBoard;
 
 import com.vaadin.router.Route;
-import com.vaadin.ui.button.Button;
 import com.vaadin.ui.common.HtmlImport;
 import com.vaadin.ui.layout.VerticalLayout;
 
 /**
- * The main view contains a button and a template element.
+ * The main of the game
  */
 @SuppressWarnings("serial")
 @HtmlImport("styles.html")
@@ -32,16 +30,16 @@ import com.vaadin.ui.layout.VerticalLayout;
 public class MainView extends VerticalLayout {
 
     public MainView() {
-        ExampleTemplate template = new ExampleTemplate();
+    	setSizeFull();
+    	
+    	
+    	
+    	TicTacToeBoard board = new TicTacToeBoard(3, 3);
 
-        TicTacToeCell cell = new TicTacToeCell();
-
-        Button button =  new Button("Click me", event -> {
-        	template.setValue("Clicked!");
-        	cell.setCellValue(TicTacToeEnum.CELL_X);
-        });
-
-        add(button, template, cell);
+        add(board);
+        
+        setHorizontalComponentAlignment(Alignment.CENTER, board);
+        
     }
 
 }
