@@ -26,14 +26,13 @@ import com.vaadin.ui.layout.VerticalLayout;
  */
 @SuppressWarnings("serial")
 @HtmlImport("styles.html")
-@Route(value="",layout=AppLayout.class)
-public class MainView extends VerticalLayout {
+@Route(value="view2",layout=AppLayout.class)
+public class MainView2 extends VerticalLayout {
 
-    public MainView() {
-    	
+    public MainView2() {
     	setSizeFull();
     	
-    	TicTacToeBoard board = new TicTacToeBoard(3, 3);
+    	TicTacToeBoard board = new TicTacToeBoard(4, 4);
 
         add(board);
         

@@ -25,6 +25,7 @@ import javax.servlet.annotation.WebServlet;
  * <p>
  * It is not mandatory to have the Servlet, since Flow will automatically register a Servlet to any app with at least one {@code @Route} to server root context.
  */
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/*", name = "UIServlet", asyncSupported = true)
 @VaadinServletConfiguration(usingNewRouting = true, productionMode = false)
 public class Servlet extends VaadinServlet {
