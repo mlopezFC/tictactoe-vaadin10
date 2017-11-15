@@ -16,6 +16,7 @@
 package org.vaadin.test.tictactoe.demo;
 
 import org.vaadin.test.tictactoe.TicTacToeBoard;
+import org.vaadin.test.tictactoe.TicTacToeException;
 
 import com.vaadin.router.Route;
 import com.vaadin.ui.common.HtmlImport;
@@ -32,11 +33,16 @@ public class MainView2 extends VerticalLayout {
     public MainView2() {
     	setSizeFull();
     	
-    	TicTacToeBoard board = new TicTacToeBoard(4, 4);
+    	TicTacToeBoard board;
+		try {
+			board = new TicTacToeBoard(4, 4);
+	        add(board);
+	        setHorizontalComponentAlignment(Alignment.CENTER, board);
+		} catch (TicTacToeException e) {
+			e.printStackTrace();
+		}
 
-        add(board);
         
-        setHorizontalComponentAlignment(Alignment.CENTER, board);
         
     }
 

@@ -21,6 +21,7 @@
     	</style>
     
         <div class="ticTacToeCell" on-click="handleClick">{{cellValue}}</div>
+        <span class="ticTacToeCellTempValue">{{temporalCellValue}}</span>
     </template>
 
     <!-- Polymer boilerplate to register the example-template element -->
@@ -35,6 +36,10 @@
                   cellValue: {
                     type: String,
                     value: '-'
+                  },
+                  temporalCellValue: {
+                	  type:String,
+                	  value: "-"
                   }
                 }
               }

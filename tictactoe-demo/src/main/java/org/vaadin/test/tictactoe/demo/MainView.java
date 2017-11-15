@@ -16,9 +16,12 @@
 package org.vaadin.test.tictactoe.demo;
 
 import org.vaadin.test.tictactoe.TicTacToeBoard;
+import org.vaadin.test.tictactoe.TicTacToeException;
 
 import com.vaadin.router.Route;
 import com.vaadin.ui.common.HtmlImport;
+import com.vaadin.ui.html.Div;
+import com.vaadin.ui.html.Label;
 import com.vaadin.ui.layout.VerticalLayout;
 
 /**
@@ -28,17 +31,35 @@ import com.vaadin.ui.layout.VerticalLayout;
 @HtmlImport("styles.html")
 @Route(value="",layout=AppLayout.class)
 public class MainView extends VerticalLayout {
+	
+	private Div gameLog;
 
     public MainView() {
     	
-    	setSizeFull();
-    	
-    	TicTacToeBoard board = new TicTacToeBoard(3, 3);
+    	try {
+			setSizeFull();
+			
+			TicTacToeBoard board = new TicTacToeBoard(3, 3);
+			
+			gameLog = new Div();
+			addLogLine("Game Started.");
+			
+			board.addUserMoveListener(e -> {
+				addLogLine("User " + e.getSource().getCurrentUser() + " turn.");
+			});
 
-        add(board);
-        
-        setHorizontalComponentAlignment(Alignment.CENTER, board);
+			add(board,gameLog);
+			
+			setHorizontalComponentAlignment(Alignment.CENTER, board);
+			
+		} catch (TicTacToeException e) {
+			e.printStackTrace();
+		}
         
     }
+
+	private void addLogLine(String string) {
+		gameLog.add(new Label(string));
+	}
 
 }
