@@ -11,27 +11,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
 
-<dom-module id="my-view1">
+<dom-module id="ttt-game">
   <template>
     <style include="shared-styles">
-      :host {
-        display: block;
-
-        padding: 10px;
-      }
+		:host {
+			display: block;
+			padding: 10px;
+		}
     </style>
 
     <div class="card">
       <h1>Tic Tac Toe Game</h1>
-      <p>Instructions yet to come.</p>
     </div>
   </template>
 
   <script>
-    class MyView1 extends Polymer.Element {
-      static get is() { return 'my-view1'; }
+    class TttGame extends Polymer.Element {
+      static get is() { return 'ttt-game'; }
     }
 
-    window.customElements.define(MyView1.is, MyView1);
+    window.customElements.define(TttGame.is, TttGame);
   </script>
 </dom-module>

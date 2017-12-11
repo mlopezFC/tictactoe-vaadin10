@@ -34,7 +34,7 @@ public class TicTacToeCell extends PolymerTemplate<org.vaadin.test.tictactoe.Tic
 	}
 
 	public enum TicTacToeEnum {
-		CELL_X("X"), CELL_O("O"), EMPTY("-");
+		CELL_X("X"), CELL_O("O"), EMPTY("_");
 
 		private final String value;
 
@@ -138,4 +138,9 @@ public class TicTacToeCell extends PolymerTemplate<org.vaadin.test.tictactoe.Tic
 		
 	}
 
+	@Override
+	public String toString() {
+		return "[" + getCellValue() + "]";
+	}
+	
 }

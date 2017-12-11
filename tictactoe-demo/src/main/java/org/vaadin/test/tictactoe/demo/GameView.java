@@ -21,6 +21,7 @@ import org.vaadin.test.tictactoe.TicTacToeException;
 import com.vaadin.router.Route;
 import com.vaadin.ui.common.HtmlImport;
 import com.vaadin.ui.html.Div;
+import com.vaadin.ui.html.H4;
 import com.vaadin.ui.html.Label;
 import com.vaadin.ui.layout.VerticalLayout;
 
@@ -29,28 +30,33 @@ import com.vaadin.ui.layout.VerticalLayout;
  */
 @SuppressWarnings("serial")
 @HtmlImport("styles.html")
-@Route(value="",layout=AppLayout.class)
-public class MainView extends VerticalLayout {
+@Route(value="game",layout=AppLayout.class)
+public class GameView extends VerticalLayout {
 	
 	private Div gameLog;
 
-    public MainView() {
+    public GameView() {
     	
     	try {
-			setSizeFull();
+			setWidth("100%");
 			
 			TicTacToeBoard board = new TicTacToeBoard(3, 3);
 			
 			gameLog = new Div();
-			addLogLine("Game Started.");
+			gameLog.addClassName("gameLog");
 			
-			board.addUserMoveListener(e -> {
-				addLogLine("User " + e.getSource().getCurrentUser() + " turn.");
-			});
+			addLogLine("GameView Started.");
+			
+			board.addUserMoveListener(e -> addLogLine("User " + e.getSource().getCurrentUser() + " turn."));
+			
+			board.addUserWinListener(e -> addLogLine("User " + board.getCurrentUser() + " won!"));
+			
+			board.addResetListener(e -> gameLog.removeAll());
 
 			add(board,gameLog);
 			
 			setHorizontalComponentAlignment(Alignment.CENTER, board);
+			setHorizontalComponentAlignment(Alignment.CENTER, gameLog);
 			
 		} catch (TicTacToeException e) {
 			e.printStackTrace();
@@ -59,7 +65,7 @@ public class MainView extends VerticalLayout {
     }
 
 	private void addLogLine(String string) {
-		gameLog.add(new Label(string));
+		gameLog.add(new H4(string));
 	}
 
 }

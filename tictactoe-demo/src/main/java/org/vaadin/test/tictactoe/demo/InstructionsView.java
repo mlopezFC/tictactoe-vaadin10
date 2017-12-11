@@ -15,10 +15,9 @@
  */
 package org.vaadin.test.tictactoe.demo;
 
-import org.vaadin.test.tictactoe.TicTacToeBoard;
-import org.vaadin.test.tictactoe.TicTacToeException;
-
 import com.vaadin.router.Route;
+import com.vaadin.ui.UI;
+import com.vaadin.ui.button.Button;
 import com.vaadin.ui.common.HtmlImport;
 import com.vaadin.ui.layout.VerticalLayout;
 
@@ -27,23 +26,17 @@ import com.vaadin.ui.layout.VerticalLayout;
  */
 @SuppressWarnings("serial")
 @HtmlImport("styles.html")
-@Route(value="view2",layout=AppLayout.class)
-public class MainView2 extends VerticalLayout {
+@Route(value="instructions",layout=AppLayout.class)
+public class InstructionsView extends VerticalLayout {
 
-    public MainView2() {
+    public InstructionsView() {
     	setSizeFull();
     	
-    	TicTacToeBoard board;
-		try {
-			board = new TicTacToeBoard(4, 4);
-	        add(board);
-	        setHorizontalComponentAlignment(Alignment.CENTER, board);
-		} catch (TicTacToeException e) {
-			e.printStackTrace();
-		}
-
+    	Button play = new Button("Play!");
+    	
+    	play.addClickListener(e->UI.getCurrent().navigateTo("game"));
         
-        
+        add(play);
     }
 
 }
