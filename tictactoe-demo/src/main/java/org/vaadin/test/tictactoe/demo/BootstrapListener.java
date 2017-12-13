@@ -37,6 +37,7 @@ public class BootstrapListener implements com.vaadin.server.BootstrapListener {
 		head.appendChild(createMeta(document, "msapplication-TileImage", "images/manifest/icon-144x144.png"));
 		head.appendChild(createMeta(document, "msapplication-TileColor", "#3f51b5"));
 		head.appendChild(createMeta(document, "msapplication-tap-highlight", "no"));
+		head.appendChild(createMeta(document, "viewport", "width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes"));
 		
 		head.appendChild(createLink(document, "icon", "images/favicon.ico"));
 		head.appendChild(createLink(document, "manifest", "manifest.json"));
@@ -64,7 +65,7 @@ public class BootstrapListener implements com.vaadin.server.BootstrapListener {
 	
 	private Element createMeta(Document document, String property, String content) {
 		Element meta = document.createElement("meta");
-		meta.attr("property", property);
+		meta.attr("name", property);
 		meta.attr("content", content);
 		return meta;
 	}
