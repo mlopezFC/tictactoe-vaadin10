@@ -1,7 +1,7 @@
 {
-  "name": "My App",
-  "short_name": "My App",
-  "description": "My App description",
+  "name": "TicTacToe Game",
+  "short_name": "TicTacToe",
+  "description": "Demo Game for testing Vaadin 10",
   "icons": [
     {
       "src": "images/manifest/icon-192x192.png",
@@ -14,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+  "start_url": "/game",
   "display": "standalone",
   "theme_color": "#3f51b5",
   "background_color": "#3f51b5"

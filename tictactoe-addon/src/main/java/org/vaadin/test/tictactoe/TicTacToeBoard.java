@@ -11,22 +11,20 @@ import com.vaadin.router.OptionalParameter;
 import com.vaadin.router.event.BeforeNavigationEvent;
 import com.vaadin.shared.Registration;
 import com.vaadin.ui.Composite;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.button.Button;
 import com.vaadin.ui.combobox.ComboBox;
 import com.vaadin.ui.event.ComponentEvent;
 import com.vaadin.ui.event.ComponentEventListener;
 import com.vaadin.ui.html.Div;
-import com.vaadin.ui.html.Label;
+import com.vaadin.ui.layout.FlexLayout.Alignment;
 import com.vaadin.ui.layout.HorizontalLayout;
 import com.vaadin.ui.layout.VerticalLayout;
-import com.vaadin.ui.layout.FlexLayout.Alignment;
 import com.vaadin.ui.textfield.TextField;
 
 public class TicTacToeBoard extends Composite<Div> implements HasUrlParameter<String> {
 
 	/**
-	 * 
+	 * O
 	 */
 	private static final long serialVersionUID = 1L;
 

@@ -8,6 +8,11 @@ package org.vaadin.test.tictactoe;
  */
 public class TicTacToeException extends Exception {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public TicTacToeException(String string) {
 		super(string);
 	}
