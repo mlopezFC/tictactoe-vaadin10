@@ -133,55 +133,6 @@
 					<scanIntervalSeconds>2</scanIntervalSeconds>
 				  </configuration>
 			</plugin>
-			<!-- The Jetty plugin allows us to easily test the development build by -->
-			<!-- running jetty:run on the command line. 
-			<plugin>
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${jetty.plugin.version}</version>
-				<configuration>
-					<scanIntervalSeconds>2</scanIntervalSeconds>
-				  <webApp>
-					<baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-					  <resourcesAsCSV>src/main/webapp,${static.target.directory}</resourcesAsCSV>
-					</baseResource>
-				  </webApp>
-				  </configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
-				<executions>
-					<execution>
-						<id>run-bower</id>
-						<phase>process-resources</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<executable>bower</executable>
-							<workingDirectory>${project.basedir}</workingDirectory>
-							<arguments>
-								<argument>install</argument>
-								<argument>- -config.directory=${frontend.target.directory}/bower_components</argument>
-							</arguments>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.0</version>
-				<configuration>
-					<webResources>
-						<resource>
-							<directory>${project.basedir}/${static.target.directory}</directory>
-						</resource>
-					</webResources>
-				</configuration>
-			</plugin>-->
 		</plugins>
 		<pluginManagement>
 			<plugins>
