@@ -6,14 +6,15 @@ package org.vaadin.test.tictactoe.demo;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import com.vaadin.server.BootstrapPageResponse;
+import com.vaadin.flow.server.BootstrapListener;
+import com.vaadin.flow.server.BootstrapPageResponse;
 
 /**
  * @author mlope
  *
  */
 @SuppressWarnings("serial")
-public class BootstrapListener implements com.vaadin.server.BootstrapListener {
+public class CustomBootstrapListener implements BootstrapListener {
 
 	/*
 	 * (non-Javadoc)

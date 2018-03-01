@@ -1,3 +1,4 @@
+package org.vaadin.test.tictactoe.demo;
 /*
  * Copyright 2000-2017 Vaadin Ltd.
  *
@@ -13,7 +14,7 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.vaadin.test.tictactoe.demo;
+
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -26,10 +27,10 @@ import com.vaadin.flow.router.Route;
  */
 @SuppressWarnings("serial")
 @HtmlImport("styles.html")
-@Route(value="instructions",layout=AppLayout.class)
-public class InstructionsView extends VerticalLayout {
+@Route(value="about",layout=AppLayout.class)
+public class AboutView extends VerticalLayout {
 
-    public InstructionsView() {
+    public AboutView() {
     	setSizeFull();
     	
     	Button play = new Button("Play!");

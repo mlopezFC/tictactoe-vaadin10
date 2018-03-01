@@ -18,18 +18,22 @@ package org.vaadin.test.tictactoe.demo;
 import org.vaadin.test.tictactoe.TicTacToeBoard;
 import org.vaadin.test.tictactoe.TicTacToeException;
 
-import com.vaadin.router.Route;
-import com.vaadin.ui.common.HtmlImport;
-import com.vaadin.ui.html.Div;
-import com.vaadin.ui.html.H4;
-import com.vaadin.ui.layout.VerticalLayout;
+import com.vaadin.flow.component.dependency.HtmlImport;
+import com.vaadin.flow.component.dependency.JavaScript;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.Route;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 
 /**
  * The main of the game
  */
 @SuppressWarnings("serial")
 @HtmlImport("styles.html")
-@Route(value="game",layout=AppLayout.class)
+@Route(value="",layout=AppLayout.class)
+@JavaScript("../js/app.js")
 public class GameView extends VerticalLayout {
 	
 	private Div gameLog;

@@ -1,14 +1,14 @@
 package org.vaadin.test.tictactoe.demo;
 
-import com.vaadin.server.ServiceInitEvent;
-import com.vaadin.server.VaadinServiceInitListener;
+import com.vaadin.flow.server.ServiceInitEvent;
+import com.vaadin.flow.server.VaadinServiceInitListener;
 
 @SuppressWarnings("serial")
 public class ApplicationServiceInitListener implements VaadinServiceInitListener {
 
 	@Override
     public void serviceInit(ServiceInitEvent event) {
-        event.addBootstrapListener(new BootstrapListener());
+        event.addBootstrapListener(new CustomBootstrapListener());
 
         event.addDependencyFilter((dependencies, filterContext) -> {
             // DependencyFilter to add/remove/change dependencies sent to

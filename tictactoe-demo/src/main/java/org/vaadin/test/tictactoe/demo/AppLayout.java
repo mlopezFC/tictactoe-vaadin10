@@ -2,16 +2,19 @@ package org.vaadin.test.tictactoe.demo;
 
 import org.vaadin.test.tictactoe.demo.AppLayout.AppLayoutModel;
 
-import com.vaadin.flow.model.TemplateModel;
-import com.vaadin.router.RouterLayout;
-import com.vaadin.ui.Tag;
-import com.vaadin.ui.common.HasComponents;
-import com.vaadin.ui.common.HtmlImport;
-import com.vaadin.ui.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.component.HasComponents;
+import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.dependency.HtmlImport;
+import com.vaadin.flow.component.polymertemplate.PolymerTemplate;
+import com.vaadin.flow.router.RouterLayout;
+import com.vaadin.flow.templatemodel.TemplateModel;
+import com.vaadin.flow.theme.Theme;
+import com.vaadin.flow.theme.lumo.Lumo;
 
 @SuppressWarnings("serial")
 @Tag("app-layout")
 @HtmlImport("frontend://app-layout/app-layout.html")
+@Theme(Lumo.class)
 public class AppLayout extends PolymerTemplate<AppLayoutModel> implements HasComponents, RouterLayout {
 
 	/**

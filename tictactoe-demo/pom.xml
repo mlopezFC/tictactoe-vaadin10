@@ -20,9 +20,7 @@
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 
 		<!-- Dependencies -->
-        <vaadin.project.version>10.0.0.alpha8</vaadin.project.version>
-		<flow.version>1.0.0.alpha11</flow.version>
-        <flow.project.version>${flow.version}</flow.project.version>
+        <vaadin.project.version>10.0.0.alpha21</vaadin.project.version>
 		<servlet.api.version>3.1.0</servlet.api.version>
 		<selenium.server.version>3.4.0</selenium.server.version>
 
@@ -83,13 +81,6 @@
                 <scope>import</scope>
                 <version>${vaadin.project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-webjars-bom</artifactId>
-                <type>pom</type>
-                <scope>import</scope>
-                <version>${flow.project.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     
@@ -103,7 +94,6 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin</artifactId>
-            <version>${vaadin.project.version}</version>
         </dependency>
 
 		<dependency>
@@ -209,7 +199,6 @@
 				<dependency>
 					<groupId>com.vaadin</groupId>
 					<artifactId>flow-server-production-mode</artifactId>
-					<version>${flow.project.version}</version>
 				</dependency>
 			</dependencies>
 

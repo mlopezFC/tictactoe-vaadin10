@@ -6,20 +6,20 @@ import java.util.List;
 
 import org.vaadin.test.tictactoe.TicTacToeCell.TicTacToeEnum;
 
-import com.vaadin.router.HasUrlParameter;
-import com.vaadin.router.OptionalParameter;
-import com.vaadin.router.event.BeforeNavigationEvent;
-import com.vaadin.shared.Registration;
-import com.vaadin.ui.Composite;
-import com.vaadin.ui.button.Button;
-import com.vaadin.ui.combobox.ComboBox;
-import com.vaadin.ui.event.ComponentEvent;
-import com.vaadin.ui.event.ComponentEventListener;
-import com.vaadin.ui.html.Div;
-import com.vaadin.ui.layout.FlexLayout.Alignment;
-import com.vaadin.ui.layout.HorizontalLayout;
-import com.vaadin.ui.layout.VerticalLayout;
-import com.vaadin.ui.textfield.TextField;
+import com.vaadin.flow.component.ComponentEvent;
+import com.vaadin.flow.component.ComponentEventListener;
+import com.vaadin.flow.component.Composite;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.orderedlayout.FlexComponent.Alignment;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
+import com.vaadin.flow.router.OptionalParameter;
+import com.vaadin.flow.shared.Registration;
 
 public class TicTacToeBoard extends Composite<Div> implements HasUrlParameter<String> {
 
@@ -75,7 +75,7 @@ public class TicTacToeBoard extends Composite<Div> implements HasUrlParameter<St
 		}
 		
 		TextField tf = new TextField(getCurrentUser().toString());
-		tf.setReadonly(true);
+		tf.getElement().setProperty("readonly", true);
 		tf.setLabel("Current User");
 
 		ComboBox<String> cb = new ComboBox<String>("Board size", Arrays.asList(new String[] {"3x3","4x4","5x5","6x6"}));
@@ -235,7 +235,7 @@ public class TicTacToeBoard extends Composite<Div> implements HasUrlParameter<St
 	}
 
 	@Override
-	public void setParameter(BeforeNavigationEvent arg0, @OptionalParameter String parameter) {
+	public void setParameter(BeforeEvent arg0, @OptionalParameter String parameter) {
         if(parameter == null) {
         	// there is no game id present, create a new one and then navigate to that url
         	

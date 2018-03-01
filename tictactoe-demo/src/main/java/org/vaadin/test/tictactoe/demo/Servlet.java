@@ -15,10 +15,24 @@
  */
 package org.vaadin.test.tictactoe.demo;
 
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.server.VaadinServletConfiguration;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+
+import org.apache.commons.io.IOUtils;
+
+import com.vaadin.flow.server.RequestHandler;
+import com.vaadin.flow.server.ServiceException;
+import com.vaadin.flow.server.SessionInitEvent;
+import com.vaadin.flow.server.SessionInitListener;
+import com.vaadin.flow.server.VaadinRequest;
+import com.vaadin.flow.server.VaadinResponse;
+import com.vaadin.flow.server.VaadinServlet;
+import com.vaadin.flow.server.VaadinServletConfiguration;
+import com.vaadin.flow.server.VaadinSession;
 
 /**
  * The main servlet for the application.
@@ -29,4 +43,43 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet(urlPatterns = "/*", name = "UIServlet", asyncSupported = true)
 @VaadinServletConfiguration(usingNewRouting = true, productionMode = false)
 public class Servlet extends VaadinServlet {
+	
+	@Override
+	protected void servletInitialized() throws ServletException {
+		super.servletInitialized();
+
+			getService().addSessionInitListener(new SessionInitListener() {
+
+				@Override
+				public void sessionInit(SessionInitEvent event) throws ServiceException {
+					event.getSession().addRequestHandler(new RequestHandler() {
+
+						@Override
+						public boolean handleRequest(VaadinSession session, VaadinRequest request,
+								VaadinResponse response) throws IOException {
+
+							String pathInfo = request.getPathInfo();
+							InputStream in = null;
+
+							if (pathInfo.endsWith("sw.js")) {
+								response.setContentType("application/javascript");
+								in = getClass().getResourceAsStream("/sw.js");
+							}
+
+						if (in != null) {
+							OutputStream out = response.getOutputStream();
+								IOUtils.copy(in, out);
+								in.close();
+								out.close();
+
+								return true;
+							} else {
+
+								return false;
+							}
+						}
+					});
+				}
+			});
+		}
 }
