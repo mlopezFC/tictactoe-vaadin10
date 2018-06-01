@@ -34,7 +34,7 @@ public class InstructionsView extends VerticalLayout {
     	
     	Button play = new Button("Play!");
     	
-    	play.addClickListener(e->UI.getCurrent().navigateTo(""));
+    	play.addClickListener(e->UI.getCurrent().navigate(""));
         
         add(play);
     }

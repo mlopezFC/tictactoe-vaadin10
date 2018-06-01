@@ -1,7 +1,7 @@
 package org.vaadin.test.tictactoe;
 
 /**
- * Exception representing a problem with the TicTacToe game
+ * Exception that represents a problem with the TicTacToe game
  * 
  * @author mlopez
  *

@@ -18,6 +18,7 @@ package org.vaadin.test.tictactoe.demo;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -35,7 +36,10 @@ public class AboutView extends VerticalLayout {
     	
     	Button play = new Button("Play!");
     	
-    	play.addClickListener(e->UI.getCurrent().navigateTo(""));
+    	play.addClickListener(e->UI.getCurrent().navigate(""));
+    	
+    	ComboBox<String> cb = new ComboBox<>();
+    	cb.getElement().setAttribute("title", "A tooltip");
         
         add(play);
     }

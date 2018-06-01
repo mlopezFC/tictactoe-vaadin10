@@ -41,7 +41,7 @@ import com.vaadin.flow.server.VaadinSession;
  */
 @SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/*", name = "UIServlet", asyncSupported = true)
-@VaadinServletConfiguration(usingNewRouting = true, productionMode = false)
+@VaadinServletConfiguration(productionMode = false)
 public class Servlet extends VaadinServlet {
 	
 	@Override
