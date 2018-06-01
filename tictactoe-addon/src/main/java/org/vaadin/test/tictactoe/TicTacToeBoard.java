@@ -146,9 +146,35 @@ public class TicTacToeBoard extends Composite<Div> implements HasUrlParameter<St
 			if (checkRow(cells)) return true;
 		}
 		
-		// TODO: Check diagonals
-		
+		// scan top-to-bottom-left-to-right diagonals
+		for(int x=0;x<(cells.length-2);x++) {
+			for(int y=0;y<(cells.length-2);y++) {
+				TicTacToeEnum currentValue = obtainCellValue(cells,x,y);
+				if (!currentValue.equals(TicTacToeEnum.EMPTY))
+				if (currentValue.equals(obtainCellValue(cells,x+1,y+1)) && currentValue.equals(obtainCellValue(cells,x+2,y+2))) {
+					fireEvent(new UserWinEvent(this,false, null));
+					return true;
+				}
+			}
+		}
+
+		// scan top-to-bottom-right-to-left diagonals
+		for(int x=2;x<(cells.length);x++) {
+			for(int y=0;y<(cells.length-2);y++) {
+				TicTacToeEnum currentValue = obtainCellValue(cells,x,y);
+				if (!currentValue.equals(TicTacToeEnum.EMPTY))
+				if (currentValue.equals(obtainCellValue(cells,x-1,y+1)) && currentValue.equals(obtainCellValue(cells,x-2,y+2))) {
+					fireEvent(new UserWinEvent(this,false, null));
+					return true;
+				}
+			}
+		}
+
 		return false;
+	}
+
+	private TicTacToeEnum obtainCellValue(TicTacToeCell[][] cells2, int x, int y) {
+		return cells2[x][y].getCellValue();
 	}
 
 	private boolean checkRow(TicTacToeCell[] horizontalCells) {
